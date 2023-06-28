@@ -3,27 +3,41 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const PORT = 3000;
-require("dotenv/config");
 const cors = require('cors');
+// ! Import Routes....
 
 const productRoute = require('./src/shop/routes/productsRoutes');
-const registeringRoute=require('./src/register/routes/signup_route')
+const registeringRoute = require('./src/register/routes/signup_route')
 
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+//? MiddleWare  
+
+
+
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.urlencoded({
-  extended: true
-}));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(cors()); // enable CORS for all routes
 
-app.use("/", productRoute);
-app.use('/register',registeringRoute);
+// % set Use Routes.......
+
+
+
+app.use("/products", productRoute);
+//*   /products/get : get all products...
+//!   /products/add : add new product ...
+
+
+app.use('/register', registeringRoute);
+//* /register/signUp 
+//! /register/login 
+
+// * Connect to data base.........
 
 // CONNECT TO DB 
 mongoose.connect('mongodb://127.0.0.1:27017/productDb');
+
+// ? Run  Server......
 
 // LISTEN TO PORT 3000
 app.listen(PORT, () => {

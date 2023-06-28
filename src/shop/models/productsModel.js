@@ -31,10 +31,7 @@ const productSchema = mongoose.Schema({
     images: {
       type: [String],
       required: false,
-      validate: [imagesLimit, '{PATH} exceeds the limit of 4']
     }
   });
-  function imagesLimit(val) {
-    return val.length <= 4;
-  }
-module.exports = mongoose.model('productModel', productSchema);
+
+module.exports = mongoose.model('Products', productSchema);
