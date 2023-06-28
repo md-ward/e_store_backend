@@ -7,7 +7,9 @@ const cors = require('cors');
 // ! Import Routes....
 
 const productRoute = require('./src/shop/routes/productsRoutes');
-const registeringRoute = require('./src/register/routes/signup_route')
+const registeringRoute = require('./src/register/routes/signup_route');
+const ordersRoute = require('./src/shop/routes/ordersRoutes');
+
 
 //? MiddleWare  
 
@@ -31,6 +33,10 @@ app.use("/products", productRoute);
 app.use('/register', registeringRoute);
 //* /register/signUp 
 //! /register/login 
+
+app.use('/order', ordersRoute);
+
+
 
 // * Connect to data base.........
 
