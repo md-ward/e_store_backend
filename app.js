@@ -47,8 +47,11 @@ app.use('/contactUs', contactusRouter)
 
 /*
 !GET /contactUs/get : get all contact form submissions
+!GET /count : get all messages count 
+
 ?POST /contactUs/new_message : create a new contact form submission
 *DELETE /contactUs/delete/:messageId : delete a contact form submission by ID
+
 */
 
 
