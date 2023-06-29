@@ -9,6 +9,7 @@ const cors = require('cors');
 const productRoute = require('./src/shop/routes/productsRoutes');
 const registeringRoute = require('./src/register/routes/signup_route');
 const ordersRoute = require('./src/shop/routes/ordersRoutes');
+const contactusRouter = require("./src/shop/routes/contactusRoutes");
 
 
 //? MiddleWare  
@@ -35,7 +36,20 @@ app.use('/register', registeringRoute);
 //! /register/login 
 
 app.use('/order', ordersRoute);
+/*
+?GET /order/get : get all orders
+!POST /order/newOrder : create a new order
+*DELETE /order/delete/:orderId : delete an order by ID
+*/
 
+
+app.use('/contactUs', contactusRouter)
+
+/*
+!GET /contactUs/get : get all contact form submissions
+?POST /contactUs/new_message : create a new contact form submission
+*DELETE /contactUs/delete/:messageId : delete a contact form submission by ID
+*/
 
 
 // * Connect to data base.........
