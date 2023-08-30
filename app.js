@@ -9,7 +9,8 @@ const cors = require('cors');
 const productRoute = require('./src/shop/routes/productsRoutes');
 const registeringRoute = require('./src/register/routes/signup_route');
 const ordersRoute = require('./src/shop/routes/ordersRoutes');
-const contactusRouter = require("./src/shop/routes/contactusRoutes");
+const contactusRouter = require("./src/shop/routes/contactusRoutes"); const categoriesRoutes = require("./src/shop/routes/products_categoriesRoutes");
+693
 
 
 //? MiddleWare  
@@ -53,6 +54,9 @@ app.use('/contactUs', contactusRouter)
 *DELETE /contactUs/delete/:messageId : delete a contact form submission by ID
 
 */
+
+
+app.use('/category', categoriesRoutes)
 
 
 // * Connect to data base.........

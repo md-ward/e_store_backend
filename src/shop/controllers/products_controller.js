@@ -30,7 +30,7 @@ exports.createProduct = async (req, res) => {
   }
 };
 
-exports.removeProducts=async (req,res)=>{
+exports.removeProducts = async (req, res) => {
 
   try {
     const productId = req.params.productId;
