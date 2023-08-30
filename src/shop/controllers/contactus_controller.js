@@ -6,13 +6,14 @@ exports.getAllContactsCount = async (req, res) => {
 
     try {
         //* Use the countDocuments() method to get the count of all products
-        const count = await Product.countDocuments();
+        const count = await ContactUs.countDocuments();
         res.status(200).json({ count });
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 
 }
+
 exports.getAllContacts = async (req, res) => {
     try {
         const contacts = await ContactUs.find();
